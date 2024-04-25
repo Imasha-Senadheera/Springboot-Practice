@@ -8,6 +8,7 @@ class DemoApplicationTests {
 
 	@Test
 	void contextLoads() {
+		// Add test logic here if necessary
 	}
 
 }

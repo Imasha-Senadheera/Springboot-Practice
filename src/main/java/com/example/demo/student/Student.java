@@ -1,12 +1,11 @@
 package com.example.demo.student;
 
-import jakarta.persistence.*;
-
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.Period;
 
 @Entity
-@Table
+@Table(name = "student")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "student_sequence")
@@ -22,24 +21,11 @@ public class Student {
     public Student() {
     }
 
-    public Student(Long id,
-                   String name,
-                   String email,
-                   LocalDate dob) {
-        this.id = id;
+    public Student(String name, String email, LocalDate dob) {
         this.name = name;
         this.email = email;
         this.dob = dob;
     }
-
-    public Student(String name,
-                   String email,
-                   LocalDate dob) {
-        this.name = name;
-        this.email = email;
-        this.dob = dob;
-    }
-
 
     // Getters and Setters
 
@@ -76,7 +62,7 @@ public class Student {
     }
 
     public int getAge() {
-        return Period.between(this.dob,LocalDate.now()).getYears();
+        return Period.between(this.dob, LocalDate.now()).getYears();
     }
 
     public void setAge(int age) {
